@@ -1,5 +1,10 @@
+export enum ObjectTypes {
+    text = 'text',
+    content = 'content',
+}
+
 export interface CMSObjectType {
-  type: 'text' | 'content'
-  label: string
-  required: boolean
+    type: ObjectTypes
+    label: string
+    required: boolean
 }
