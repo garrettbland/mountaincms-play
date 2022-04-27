@@ -10,12 +10,11 @@ import filter from 'lodash/fp/filter'
 import map from 'lodash/fp/map'
 import has from 'lodash/fp/has'
 import intersection from 'lodash/fp/intersection'
-import * as Sqrl from 'squirrelly'
 import { Filter, TemplateObject } from 'squirrelly/dist/types/parse'
 
-const defaultSqrlConfig = Sqrl.defaultConfig
+const defaultSqrlConfig = window.Sqrl.defaultConfig
 
-Sqrl.filters.define('type', (text, type) => {
+window.Sqrl.filters.define('type', (text: string, type: string) => {
     return text
 })
 
@@ -30,7 +29,7 @@ export const Playground = () => {
 
     const parseRawHTML = (rawString: string): void => {
         try {
-            const compiled = Sqrl.parse(rawString, defaultSqrlConfig)
+            const compiled = window.Sqrl.parse(rawString, defaultSqrlConfig)
 
             const getInputType: (filters: Filter[]) => ObjectTypes = compose(
                 (type) => type,
